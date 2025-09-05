@@ -1,0 +1,20 @@
+# coderabbit.yaml
+review:
+  # Ngôn ngữ mặc định khi review
+  language: en
+
+  # Có review các thay đổi nhỏ (ví dụ sửa chính tả) không
+  review_simple_changes: false
+
+  # Tóm tắt PR
+  summarize: true
+  summarize_release_notes: true
+
+  # Cho phép bot trả lời comment trong PR
+  comment_on_pr: true
+
+  # Có bỏ qua PR tự merge (bot = dependabot, renovate, v.v.) không
+  skip_bots: true
+
+  # Chế độ debug
+  debug: false
