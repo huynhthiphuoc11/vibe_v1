@@ -1,3 +1,4 @@
+"use client"
 import { Fragment, MessageRole, MessageType } from "@/generated/prisma";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
