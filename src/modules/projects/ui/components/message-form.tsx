@@ -1,3 +1,4 @@
+"use client"
 import { useForm } from "react-hook-form";
 import { zodResolver} from "@hookform/resolvers/zod";
 import TextareaAutosize from "react-textarea-autosize";
@@ -21,6 +22,7 @@ const formSchema = z.object({
     .min(1, "Message content is required")
     .max(10000, { message: "Value is too long" }),
 });
+
 export const MessageForm = ({ projectId }: Props) => {
     const [isFocused, setIsFocused] = useState(false);
     const showUsage = useState(false);
