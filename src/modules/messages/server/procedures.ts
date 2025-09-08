@@ -6,9 +6,21 @@ import { inngest } from "@/inngest/client";
 
 export const messageRouter = createTRPCRouter({
     getMany: baseProcedure
-        .query(async () => {
+    .input(
+        z.object({
+            projectId: z.string().min(1, { message: "Project ID is required"}),
+
+        }),
+    )
+        .query(async ({ input }) => {
             const message = await prisma.message.findMany({
-                orderBy: { 
+                where: {
+                    projectId: input.projectId,
+                },
+                include: {
+                    fragment: true,
+                },
+                orderBy: {
                     updatedAt: "asc",
                 },
             });
