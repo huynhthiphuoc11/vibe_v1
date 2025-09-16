@@ -61,4 +61,9 @@ export const projectsRouter = createTRPCRouter({
         return createProject;
       }
       )
+,
+    getMany: baseProcedure
+        .query(async () => {
+            return prisma.project.findMany();
+        })
 });
