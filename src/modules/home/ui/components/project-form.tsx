@@ -38,6 +38,9 @@ export const ProjectForm = () => {
             queryClient.invalidateQueries(
                 trpc.projects.getMany.queryOptions(), // hoặc tên đúng của query lấy danh sách project
             );
+            queryClient.invalidateQueries(
+                trpc.usage.status.queryOptions(),
+            );
             router.push(`/projects/${data.id}`);
         },
 
@@ -45,6 +48,10 @@ export const ProjectForm = () => {
                 toast.error(error.message);
                 if (error.data?.code === "UNAUTHORIZED") {
                     clerk.openSignIn();
+                    return;
+                }
+                if (error.data?.code === "TOO_MANY_REQUESTS") {
+                    router.push("/pricing");
                     return;
                 }
             },
