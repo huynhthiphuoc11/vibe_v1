@@ -16,6 +16,7 @@ export const messageRouter = createTRPCRouter({
         }),
     )
         .query(async ({ input, ctx }) => {
+            
             const message = await prisma.message.findMany({
                 where: {
                     projectId: input.projectId,
