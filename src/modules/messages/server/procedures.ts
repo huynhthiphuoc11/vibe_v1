@@ -3,6 +3,8 @@ import { z } from "zod";
 import prisma from "@/lib/db";
 import { inngest } from "@/inngest/client";
 import { TRPCError } from "@trpc/server";
+import { consumeCredits } from "@/lib/usage";
+import { ca, th } from "date-fns/locale";
 
 
 export const messageRouter = createTRPCRouter({
@@ -49,6 +51,18 @@ export const messageRouter = createTRPCRouter({
         
         if (!existingProject){
             throw new TRPCError({ code: "NOT_FOUND", message: "Project not found" });
+        }
+        try {
+            await consumeCredits();
+        } catch (error) {
+            if (error instanceof Error){
+                throw new TRPCError({ code: "BAD_REQUEST", message: "Something went wrong" });
+            } else {
+                throw new TRPCError({
+                    code: "TOO_MANY_REQUESTS",
+                    message: "You have run out of credits"
+                });
+            }
         }
         const createMessage =await prisma.message.create({
             data: {
