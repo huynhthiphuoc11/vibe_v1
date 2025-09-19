@@ -68,7 +68,7 @@ export const codeAgentFunction = inngest.createFunction(
           description: "Use the terminal to run commands",
           parameters: z.object({
             command: z.string(),
-          }) as any,
+          }),
         handler: async ({ command }, { step }) => {
           return await step?.run("terminal", async () => {
             const buffers = { stdout: "", stderr: "" };

@@ -19,8 +19,7 @@ import {
 
 import { convertFilesToTreeItems } from "@/lib/utils";
 import { TreeView } from "../tree-view";
-import { string } from "zod";
-import { set } from "date-fns";
+
 
 type FileCollection = { [path: string]: string};
 

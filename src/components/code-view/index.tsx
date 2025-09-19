@@ -1,5 +1,5 @@
-import prisma from "@/lib/db";
-import { use, useEffect } from "react";
+
+import { useEffect } from "react";
 import Prism from "prismjs";
 import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-javascript";

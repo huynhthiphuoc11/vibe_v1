@@ -17,12 +17,11 @@ import {
     CollapsibleContent,
     CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { sub } from "date-fns";
 interface TreeViewProps {
     data: TreeItem[];
     value: string | null;
     onSelect: (item: string) => void;
-}
+};
 export const TreeView = ({
     data,
     value,
@@ -61,7 +60,7 @@ interface TreeProps {
     onSelect?: (item: string) => void;
     parentPath: string
 };
-9
+
 const Tree = ({ item, selectedvalue, onSelect, parentPath }: TreeProps) => {
     const [name,...items] = Array.isArray(item) ? item : [item];
     const currentPath = parentPath ? `${parentPath}/${name}` : name;

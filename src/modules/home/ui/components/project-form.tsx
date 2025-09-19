@@ -6,7 +6,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { ArrowUpIcon, Loader2Icon } from "lucide-react";
-import { queryOptions, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTRPC } from "@/trpc/client";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";

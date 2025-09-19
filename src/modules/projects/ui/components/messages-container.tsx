@@ -4,7 +4,6 @@ import { useTRPC } from "@/trpc/client";
 import { MessageCard } from "./message-card";
 import { useEffect, useRef } from "react";
 import { Fragment } from "@/generated/prisma";
-import { is } from "date-fns/locale";
 import { MessageLoading } from "./message-loading";
 import { MessageForm } from "./message-form";
 

@@ -10,7 +10,7 @@ import { useUser } from "@clerk/nextjs";
 export const ProjectsList = () => {
     const trpc = useTRPC();
     const { user } = useUser();
-    const { data: projects, isLoading } = useQuery(
+    const { data: projects } = useQuery(
         trpc.projects.getMany.queryOptions());
         if(!user) return null;
         return (
